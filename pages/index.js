@@ -1,11 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Home(props) {
+  console.log(props);
   return (
     <>
       <Head>
@@ -14,110 +11,66 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
+      <main className="h-full bg-black">
+        <div className="bg-black h-full p-2 md:p-4 flex flex-wrap">
+          <div className="w-full xl:w-1/2 md:mt-24 p-2 md:p-8 ml-auto mr-0" >
+            <h1 className="text-white text-7xl text-right font-bold">A Love Letter To Garry K. Kasparov</h1>
+            <p className="text-gray-200 mr-0 text-right text-2xl my-4 font-extralight">140 piece art collection dedicated to the beauty of chess, and the mastery of one of the finest players to ever live</p>
+            <p className="text-gray-200 mr-0 text-right text-md my-6 font-extralight">0.05 ETH / ${Math.floor((props.eth * 5) / 100)}</p>
+            <div className="flex flex-row justify-end mt-8">
+              
+              <button className="text-black bg-white small-rounded px-4 border-2 border-white py-1 ml-4 ">Buy with card</button>
+              <button className="text-white bg-black border-2 border-white small-rounded px-4 py-1 ml-4" >Buy with crypto</button>
+            </div>
+            <a href="#about" className="text-white text-right mt-8 font-extralight underline block">
+           Read on to discover more
             </a>
           </div>
+          <img src="/kasparov-art.png" className="kasparov-image" />
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
+        <div className="p-4 sm:p-8 md:p-16 w-full sm:w-1/2 md:w-2/3 mx-auto">
+          <h1 className="text-white text-7xl text-center font-bold">About The Art</h1>
+          <p className="text-gray-200 mr-0 text-center text-xl my-6 font-extralight" >
+              Combining the beauty of chess with the power of code. Each art piece represents a chess game played by Kasparov during his illustrious career.
+          </p>
+          <p className="text-gray-200 mr-0 text-center text-xl my-6 font-extralight">
+             The lines follow the movement of pieces across the board, creating powerful patterns and shapes normally unseen. Each line is weighted based on the power of the piece it represents. This
+             weighting is proportionate to the standard points system often used to simplify the status of a chess match.
+          </p>
+          <ul className="text-white m-0 flex justify-center mt-4">
+            <li className="text-center mx-2">Pawns = 1</li>
+            <li className="text-center mx-2">Knights = 3</li>
+            <li className="text-center mx-2" >Bishops = 3</li>
+            <li className="text-center mx-2">Rooks = 5</li>
+            <li className="text-center mx-2">Queen = 8</li>     
+          </ul>
+          <p className="text-gray-200 mr-0 text-center text-xl my-6 font-extralight">
+            Using a game database containing the PGN notation for Kasparovs games, the game data was parsed then transformed into coordinates that could be used to draw using the P5 Javascript library
+          </p>
+          <p className="text-gray-200 mr-0 text-center text-xl my-6 font-extralight">
+            After copious experimentation with line work, borders, depth, space and more. Simplicity won out. The immense variation between individual games showing the staggering options at a players finger tips, even over so many games
+          </p>
         </div>
+        <div className="flex flex-wrap justify-center">
+        <img src="/kasparov-art.png" className="w-96" />
+        <img src="/kasparov-art.png" className="w-96" />
+        <img src="/kasparov-art.png" className="w-96" />
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
         </div>
       </main>
     </>
-  )
+  );
 }
+
+
+export async function getServerSideProps(context) {
+  const pricing = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
+  const pricingJson = await pricing.json();
+  console.log(pricingJson)
+  return {
+    props: {
+      eth: pricingJson.ethereum.usd,
+    }
+  };
+}
+ 
