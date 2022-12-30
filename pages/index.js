@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import faqs from '../lib/faqs';
+import FAQ from '../components/FAQ';
 
 export default function Home(props) {
   console.log(props);
@@ -13,28 +15,28 @@ export default function Home(props) {
       </Head>
       <main className="h-full bg-black">
         <div className="bg-black h-full p-2 md:p-4 flex flex-wrap">
-          <div className="w-full xl:w-1/2 md:mt-24 p-2 md:p-8 ml-auto mr-0" >
+          <div className="w-full xl:w-1/2 md:mt-20 p-2 md:p-4 ml-auto mr-0" >
             <h1 className="text-white text-7xl text-right font-bold">A Love Letter To Garry K. Kasparov</h1>
             <p className="text-gray-200 mr-0 text-right text-2xl my-4 font-extralight">140 piece art collection dedicated to the beauty of chess, and the mastery of one of the finest players to ever live</p>
-            <p className="text-gray-200 mr-0 text-right text-md my-6 font-extralight">0.05 ETH / ${Math.floor((props.eth * 5) / 100)}</p>
+            <p className="text-gray-200 mr-0 text-right text-md my-6 font-bold">0.05 ETH / ${Math.floor((props.eth * 5) / 100)}</p>
             <div className="flex flex-row justify-end mt-8">
               
               <button className="text-black bg-white small-rounded px-4 border-2 border-white py-1 ml-4 ">Buy with card</button>
               <button className="text-white bg-black border-2 border-white small-rounded px-4 py-1 ml-4" >Buy with crypto</button>
             </div>
-            <a href="#about" className="text-white text-right mt-8 font-extralight underline block">
+            <a href="#about" className="pointer text-white text-right mt-8 font-extralight underline block">
            Read on to discover more
             </a>
           </div>
           <img src="/kasparov-art.png" className="kasparov-image" />
         </div>
-        <div className="p-4 sm:p-8 md:p-16 w-full sm:w-1/2 md:w-2/3 mx-auto">
-          <h1 className="text-white text-7xl text-center font-bold">About The Art</h1>
+        <div className="p-4 sm:p-8 md:p-16 w-full sm:w-1/2 md:w-2/3 mx-auto" id="about">
+          <h1 className="text-white text-7xl text-center font-bold">The Art</h1>
           <p className="text-gray-200 mr-0 text-center text-xl my-6 font-extralight" >
               Combining the beauty of chess with the power of code. Each art piece represents a chess game played by Kasparov during his illustrious career.
           </p>
           <p className="text-gray-200 mr-0 text-center text-xl my-6 font-extralight">
-             The lines follow the movement of pieces across the board, creating powerful patterns and shapes normally unseen. Each line is weighted based on the power of the piece it represents. This
+             The lines follow the movement of pieces across the board, creating powerful patterns and shapes normally unseen. Each line is weighted based on the value of the piece it represents. This
              weighting is proportionate to the standard points system often used to simplify the status of a chess match.
           </p>
           <ul className="text-white m-0 flex justify-center mt-4">
@@ -52,10 +54,26 @@ export default function Home(props) {
           </p>
         </div>
         <div className="flex flex-wrap justify-center">
-        <img src="/kasparov-art.png" className="w-96" />
-        <img src="/kasparov-art.png" className="w-96" />
-        <img src="/kasparov-art.png" className="w-96" />
+          <img src="/kasparov-art.png" className="w-96" />
+          <img src="/kasparov-art.png" className="w-96" />
+          <img src="/kasparov-art.png" className="w-96" />
+        </div>
+        <div className="w-full sm:w-1/2 md:w-2/3 mx-auto sm:p-8 md:p-16">
+          <h1 className="text-white text-7xl text-center font-bold">The Artist</h1>
+          <p className="text-gray-200 mr-0 text-center text-xl my-4 font-extralight" >
+            {' I\'m James. Also known as WildSheep. I\'m a web3 developer, founder, art lover, and NFT collector.'} I will continue to deliver art that brings out the beauty often unseen, in patterns, processes and movements of everyday life. This is just the beginning. 
+          </p>
+          <p className="text-gray-200 mr-0 text-center text-xl my-4 font-extralight">
+           Communities I'm part of that you should check out. I'm a long time CryptoMorie, an ex-mfer (always a mfer), Gutter Gang lover #GangGang, ZenAcademy 🔮 student, and Vogu bot (for the OGs who member)
+          </p>
+          <img src="/new morie.jpeg" className="w-96 mx-auto p-4" />
+        </div>
 
+        <div className="pb-24">
+        <h1 className="text-white text-7xl text-center font-bold mb-8">FAQs</h1>
+          {faqs.map((value) => {
+            return <FAQ key={value.question} question={value.question} answer={value.answer} />;
+          })}
         </div>
       </main>
     </>
@@ -63,10 +81,10 @@ export default function Home(props) {
 }
 
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const pricing = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
   const pricingJson = await pricing.json();
-  console.log(pricingJson)
+  console.log(pricingJson);
   return {
     props: {
       eth: pricingJson.ethereum.usd,

@@ -37,3 +37,10 @@ li {
     width: 50%;
   }
 }
+
+@media(min-width: 1500px) {
+  .kasparov-image {
+    object-fit: cover;
+    width: 40%;
+  }
+}
