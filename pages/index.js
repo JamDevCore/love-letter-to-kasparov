@@ -69,7 +69,7 @@ export default function Home(props) {
            Read on to discover more
             </a>
           </div>
-          <img src="/kasparov-art.png" className="kasparov-image" />
+          <img src="/157.png" className="kasparov-image" />
         </div>
         <div className="p-4 sm:p-8 md:p-16 w-full sm:w-1/2 md:w-2/3 mx-auto" id="about">
           <h1 className="text-white text-7xl text-center font-bold">The Art</h1>
@@ -95,9 +95,12 @@ export default function Home(props) {
           </p>
         </div>
         <div className="flex flex-wrap justify-center">
-          <img src="/kasparov-art.png" className="w-96" />
-          <img src="/kasparov-art.png" className="w-96" />
-          <img src="/kasparov-art.png" className="w-96" />
+          <img src="/151.png" className="w-96" />
+          <img src="/164.png" className="w-96" />
+          <img src="/162.png" className="w-96" />
+          <img src="/154.png" className="w-96" />
+          <img src="/155.png" className="w-96" />
+          <img src="/156.png" className="w-96" />
         </div>
         <div className="w-full sm:w-1/2 md:w-2/3 mx-auto sm:p-8 md:p-16">
           <h1 className="text-white text-7xl text-center font-bold">The Artist</h1>
