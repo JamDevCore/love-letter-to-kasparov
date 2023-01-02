@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import Head from 'next/head';
 import faqs from '../lib/faqs';
+import Image from 'next/image'
 import FAQ from '../components/FAQ';
 import { WinterCheckout } from '@usewinter/checkout';
 import {useState, useEffect} from 'react';
@@ -95,12 +96,12 @@ export default function Home(props) {
           </p>
         </div>
         <div className="flex flex-wrap justify-center">
-          <img src="/151.png" className="w-96" />
-          <img src="/164.png" className="w-96" />
-          <img src="/162.png" className="w-96" />
-          <img src="/154.png" className="w-96" />
-          <img src="/155.png" className="w-96" />
-          <img src="/156.png" className="w-96" />
+          <Image src="/151.png" width={300} height={300} priority={true} />
+          <Image src="/164.png" width={300}  height={300} priority={true} />
+          <Image src="/162.png" width={300}  height={300} priority={true} />
+          <Image src="/154.png" width={300}  height={300}priority={true} />
+          <Image src="/155.png" width={300}  height={300} priority={true} />
+          <Image src="/156.png" width={300}  height={300} priority={true} />
         </div>
         <div className="w-full sm:w-1/2 md:w-2/3 mx-auto sm:p-8 md:p-16">
           <h1 className="text-white text-7xl text-center font-bold">The Artist</h1>
